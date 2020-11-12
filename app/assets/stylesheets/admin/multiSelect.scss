@@ -1,0 +1,67 @@
+.multiselect {
+    width: 200px;
+}
+
+.selectBox {
+  position: relative;
+  cursor: pointer;
+  padding-right: 9.6px;
+  padding-left: 9.6px;
+}
+
+.selectBox select {
+    display: inline-block;
+    width: calc( 100% - 15px );
+    border: none;
+    background: transparent;
+    appearance:none;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    cursor: pointer;
+}
+
+.select-arrow {
+  width: 10px;
+}
+
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+  position: absolute;
+  background-color: #ffffff;
+  margin-top: 4px;
+  width: inherit;
+  padding-bottom: 10px;
+  max-height: 107px;
+  overflow-y: scroll;
+}
+
+.option-inner-container {
+  padding-left: 10px;
+  padding-right: 19px;
+  font-weight: normal;
+  padding-top: 5px;
+
+  input[type=checkbox] {
+    height: 15px;
+    width: 15px;
+    margin: 0px;
+  }
+}
+
+#checkboxes label {
+    display: block;
+}
+
+#checkboxes .option-container:hover {
+    background-color: #e1e1e1;
+    cursor: pointer;
+}

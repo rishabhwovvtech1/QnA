@@ -1,0 +1,60 @@
+<div class="container-div page-body">
+    <div>
+      <div class="col-xs-12" align="center">
+        <u><h2> Question  </h2></u>
+      </div>
+  <div>
+    <div class="container question">
+        <h4>
+          <b><div class="col-md-12">Question From - <%=@question.user.name %></div></b>
+        <div class="col-md-12">Question - <%= @question.description %></h4></div>
+  </div>
+
+  <div class="col-xs-12" align="center">
+    <u><h2> Answers  </h2></u>
+  </div>
+      <div>
+        <% @question.answers.each_with_index  do |answer,i| %>
+          <div class="container question">
+            <h4><b><div class="col-md-12">#<%= i+1 %></div></b>
+              <b><div class="col-md-12">Answer From - <%=answer.user.name %></div></b>
+            <div class="col-md-12">Answer - <%= answer.description %></h4></div>
+        <% end %>
+      </div>
+    </div>
+  
+    <!-- Answer create-->
+
+    <div class="container col-md-8 page-body">
+        <div class="row">
+          <h4 class="col-md-8" align="center">
+            Add Answer
+          </h4>
+        </div>
+        <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <%= form_for(@answer, :url => {:controller => 'answers', :action => 'create'}) do |f| %>
+                <div class="row mrs mls new_form">
+                    <div class="form-group col-md-6">
+                        <%= f.label :description, 'Answer' %>
+                        <%= f.text_field :description, class: 'form-control input feedr-main-input', required: true %>
+                      </div>
+                      <div class="hide">
+                        <%= f.text_field :question_id, value: @question.id, class: 'form-control input feedr-main-input', required: true %>
+                      </div>                      
+                </div>
+                <div class="row">
+                  <div class="col-md-12" align="center">
+                    <%= f.submit "Add", class: 'btn btn-green' %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- end -->
+  </div>
+  

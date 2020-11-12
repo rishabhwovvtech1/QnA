@@ -1,0 +1,25 @@
+<div class="container-div page-body">
+  <div>
+    <div class="col-xs-12" align="center">
+      <u><h2> Questions from users you follow </h2></u>
+    </div>
+
+    <div>
+      <h1>Questions</h1>
+      <% if @questions ==[] %>
+        <h4>No Questions from Users you follow</h4>
+        <% else %>
+      <% @questions.each_with_index  do |question,i| %>
+        <div class="container question">
+          <h4><b><div class="col-md-12">#<%= i+1 %></div></b>
+            <b><div class="col-md-12">Question From - <%=question.user.name %></div></b>
+          <div class="col-md-12">Question - <%= question.description %></h4></div>
+          <div class="col-md-12"><a href='/admin/questions/<%=question.id %>'><div class="col-md-4">View Answers/Add Answer</div></a></div>
+      <% end %>
+        <% end %>
+    </div>
+
+
+  </div>
+
+</div>

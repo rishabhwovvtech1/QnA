@@ -1,0 +1,29 @@
+<div class="container-div page-body">
+  <div>
+    <div class="col-xs-12" align="center">
+      <u><h2> Users to follow </h2></u>
+    </div>
+
+    <%#= link_to edit_admin_user_path(user), class: "btn btn-blue" do %>
+    <!--      Edit-->
+    <%# end %>
+
+    <div>
+
+      <h1> Users</h1>
+      <% @users.each_with_index  do |user,i| %>
+
+        <div class="container tweet">
+          <h4><div class="col-md-4">#<%= i+1 %></div>
+            <% if user.id != @current_user.id %>
+            <a href='admin/users/<%=user.id %>'><div class="col-md-4"><%= user.name %></div></a>
+              <% else %>
+              <div class="col-md-4"><%= user.name %> (You)</div>
+            <% end %></h4></div>
+        <% end %>
+    </div>
+
+
+  </div>
+
+</div>

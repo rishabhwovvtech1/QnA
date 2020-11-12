@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DemoApp</title>
+    <title>Assignment</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,700" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <%= render "admin/navigation" %>
+
+  <div id="main-container" class="container expanded">
+    <%= render 'admin/flash_helper' %>
     <%= yield %>
+  </div>
+
   </body>
 </html>

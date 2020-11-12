@@ -1,0 +1,110 @@
+ <div id="nav-container">
+    <nav id="nav" class="navbar navbar-inverse sidebar expanded" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="logo-container" id="home-button">
+            <span class="logo">
+              <h2>QNA</h2>
+            </span>
+          </div>
+
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-body">
+            <%
+              headers = [
+                  {
+                      text: "Users",
+                      icon: "admin-icon",
+                      dropdown: false,
+                      path: "/admin"
+                  },
+                  {
+                      text: "Topics",
+                      icon: "admin-icon",
+                      dropdown: false,
+                      path: "/admin/topics"
+                  },
+                  {
+                      text: "Questions from users",
+                      icon: "admin-icon",
+                      dropdown: false,
+                      path: "/admin/questions"
+                  },
+                  {
+                      text: "Your Profile",
+                      icon: "admin-icon",
+                      dropdown: false,
+                      path: "/admin/users"
+                  },
+                  {
+                      text: "Logout",
+                      icon: "logout-icon",
+                      path: "/admin/sessions/logout"
+                  }
+              ]
+            %>
+            <% if @current_user.present?%>
+              <% headers.each do |header| %>
+                <li>
+                  <% if header[:dropdown] %>
+                    <% if !@current_user.present?  || header[:permission].blank? || ( @current_user.method(
+                        header[:permission].last == "?" ? header[:permission] : "#{header[:permission]}?").call )
+                    %>
+                      <div class="nav-option pointer nav-option-dropdown dit">
+                        <div class="nav-icon">
+                          <span class="<%= header[:icon] %>"></span>
+                        </div>
+                        <div class="nav-content dropdown-toggle" data-toggle="dropdown"> <%= header[:text] %> </div>
+                        <ul class="dropdown-menu forAnimate" role="menu">
+                          <% header[:options].each do |option| %>
+                            <%if option[:style]%>
+                              <li>
+                                <span class="bold-header-text"><%= option[:text] %></span>
+                              </li>
+                            <%else%>
+                              <% if !@current_user.present?  || option[:permission].blank? || ( @current_user.method(
+                                  option[:permission].last == "?" ? option[:permission] : "#{option[:permission]}?").call )
+                              %>
+                                <li class="nav-dropdown-option">
+                                  <a class="nav-dropdown-text <%="bold-header-text" if option[:style]%>" href="<%= option[:path] %>"><%= option[:text] %></a>
+                                </li>
+                              <% end %>
+                            <%end%>
+                          <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+                  <% else %>
+                    <% if header[:permission].blank? || ( @current_user.method(
+                        header[:permission].last == "?" ? header[:permission] : "#{header[:permission]}?").call )
+                    %>
+                      <div class="nav-option pointer nav-option-text">
+                        <div class="nav-icon">
+                          <a href="<%= header[:path]%>"><span class="<%= header[:icon] %>"></span></a>
+                        </div>
+                        <div class="nav-content" >
+                          <a href="<%= header[:path]%>"><%= header[:text] %></a>
+                        </div>
+                        <div class="nav-tooltip">
+                          <span><%= header[:text] %></span>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </li>
+              <% end %>
+              </ul>
+            <% end %>
+            </div>
+      </div>
+    </nav>
+  </div>

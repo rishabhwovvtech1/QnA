@@ -1,33 +1,61 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  flash:
+    success:
+      update: '%{entity} has been updated successfully.'
+      create: '%{entity} has been created successfully.'
+      added: '%{entity} has been added successfully.'
+      published: '%{entity} published successfully.'
+      unpublished: '%{entity} unpublished successfully.'
+      activated: '%{entity} activated successfully.'
+      publish_for_api: '%{entity} published for api successfully.'
+      deactivated: '%{entity} deactivated successfully.'
+      enabled: '%{entity} enabled successfully.'
+      disabled: '%{entity} disabled successfully.'
+      permission_granted: 'Permission %{permission} granted to %{user}'
+      permission_revoked: 'Permission %{permission} revoked from %{user}'
+      destroy: '%{entity} has been deleted successfully.'
+      cancel: '%{entity} has been canceled successfully.'
+      reset: '%{entity} resetted successfully.'
+      closed: '%{entity} hs been closed successfully.'
+      open: '%{entity} hs been open successfully.'
+      canceled: '%{entity} has been canceled.'
+      file_upload: 'Your file has been uploaded successfully.'
+      upload_import_file: 'Your file has been uploaded successfully for processing. You will be notified via email on: "%{emails}" after processing.'
+      upload_members: 'Your file has been uploaded successfully for processing. You will be notified via email on: "%{emails}" after processing.'
+      address_added: 'Address has been created successfully. You may click <a href=%{href}>here</a> to view address'
+      address_updated: 'Address has been updated successfully. You may click <a href=%{href}>here</a> to view address'
+      payment_captured: "Amount $ '%{amount}' capture successfully for order number '%{number}'"
+      publish_winery: 'App data published successfully. Kindly do check it in iOS app'
+    danger:
+      default: 'Please fix following errors.'
+      update: 'Something went wrong while updating %{entity}.'
+      create: 'Something went wrong while creating %{entity}.'
+      published: "%{entity} can't be published"
+      publish_for_api: "%{entity} can't be published for api"
+      unpublished: "%{entity} can't be unpublished"
+      activated: "%{entity} can't be unpublished"
+      deactivated: "%{entity} can't be deactivated"
+      enabled: "%{entity} can't be enabled"
+      disabled: "%{entity} can't be disabled"
+      not_found: '%{model_name} not found.'
+      unauthorized: 'You do not have permissions to access this page.'
+      status: 'You do not have permissions to operate on self.'
+      destroy: "%{entity} can't be deleted due to associated records."
+      need_logout: 'You are already logged in with other account. Please logout and then try again.'
+      invalid_forgot_password_token: 'This link is no more valid.'
+      allocatable: 'You cannot allocate this allocation. Please assign wine to it first.'
+      remove_variant: 'You cannot remove wine after allocating allocation to customer/club.'
+      edit_wine: 'You can not update Published wines.'
+      reset: 'Something went wrong while resetting %{entity}.'
+      club_only_allocation: 'Can not assign individuals to club only allocations.'
+      closed: '%{entity} can not be closed.'
+      open: '%{entity} can not be open.'
+      canceled: '%{entity} can not be canceled.'
+      order_discard: 'You can not discard this order contact admin for further support.'
+      payment_captured: "Payment of amount $ '%{amount}' failed for order number '%{number}', Please contact admin."
+      order_cancel: 'You can not cancel this order contact admin for further support.'
+      publish_winery: 'App data published un successful.'
+      variant:
+        published: 'Can not add variant for a published wine.'
+      inactive_winery: 'Winery must be active before it can be published'
+      invalid: 'Invalid Credentials'

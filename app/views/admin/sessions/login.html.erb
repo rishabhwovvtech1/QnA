@@ -1,0 +1,10 @@
+<div class="col-xs-5">
+  <div class= "Sign_Form page-body col-xs-offset-10">
+    <h1>Log in</h1>
+    <%= form_tag(:action => 'login_attempt') do %>
+      <p>Username:</br> <%= text_field_tag :name, nil, class: "form-control feedr-main-input mt10 mb10" %></p>
+      <p class="mt10">Password:</br> <%= password_field_tag :login_password, nil, class: "form-control feedr-main-input" %></p>
+      <%= submit_tag "Log In", class:"mt10 btn btn-green" %>
+    <% end %>
+  </div>
+</div>

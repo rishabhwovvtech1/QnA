@@ -1,0 +1,33 @@
+<div class="container-div page-body">
+    <div>
+      <div class="col-xs-12" align="center">
+        <u><h2> Topics to follow </h2></u>
+      </div>
+    <div>
+        
+        <% if @topics ==[] %>
+            <h4>No topics found</h4>
+        <% else %>
+                <% @topics.each_with_index  do |topic,i| %>
+                <div class="container topic">
+                <h4><div class="col-md-4">#<%= i+1 %></div>
+                <div class="col-md-4"><%= topic.name %></h4>
+                <div class="col-md-4">
+                <% if @following.include? topic.id %>
+                    <div class="btn btn-green">
+                    Following
+                    </div>
+                <% else  %>
+                    <h3>
+                    <%= link_to follow_admin_topics_path(topic_id: topic.id), class: "btn btn-green" do %>
+                        Follow
+                    <% end %>
+                    </h3>
+                <% end %></div></div>
+            <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+  

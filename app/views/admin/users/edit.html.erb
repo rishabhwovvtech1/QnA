@@ -1,0 +1,28 @@
+<div class="container col-md-8 page-body">
+  <div class="row">
+    <h4 class="col-md-2">
+      <%= link_to admin_users_path,  class: "btn btn-blue pull-left" do %>
+        Back
+      <% end %>
+    </h4>
+    <h4 class="col-md-8" align="center">
+      Edit User
+    </h4>
+  </div>
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= form_for(@user, :url => {:controller => 'users', :action => 'update'}) do |f| %>
+          <div class="row mrs mls new_form">
+            <%= render 'form', f: f,form_type: "edit" %>
+          </div>
+          <div class="row">
+            <div class="col-md-12" align="center">
+              <%= f.submit "Update", class: 'btn btn-blue' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
