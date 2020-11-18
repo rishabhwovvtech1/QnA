@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       collection do
         get :dashboard
         get :follow
+        get :error
       end
     end
 
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
     resources :topics do
       collection do
         get :follow
+        get :error
       end
     end
   end

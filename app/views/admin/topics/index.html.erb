@@ -14,9 +14,9 @@
                 <div class="col-md-4"><%= topic.name %></h4>
                 <div class="col-md-4">
                 <% if @following.include? topic.id %>
-                    <div class="btn btn-green">
+                  <%= link_to error_admin_topics_path, class: "btn btn-red" do %>
                     Following
-                    </div>
+                    <% end %>
                 <% else  %>
                     <h3>
                     <%= link_to follow_admin_topics_path(topic_id: topic.id), class: "btn btn-green" do %>

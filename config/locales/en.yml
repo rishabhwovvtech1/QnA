@@ -1,6 +1,7 @@
 en:
   flash:
     success:
+      follow: '%{entity} followed'
       update: '%{entity} has been updated successfully.'
       create: '%{entity} has been created successfully.'
       added: '%{entity} has been added successfully.'
@@ -58,4 +59,5 @@ en:
       variant:
         published: 'Can not add variant for a published wine.'
       inactive_winery: 'Winery must be active before it can be published'
-      invalid: 'Invalid Credentials'
+      invalid: 'username/password incorrect'
+      already: 'Already Follwoing %{entity}'

@@ -9,9 +9,9 @@
   <%# end %>
 <% if !@same %>
   <% if @follows %>
-      <div class="btn btn-green">
+  <%= link_to error_admin_users_path, class: "btn btn-red" do %>
         Following
-      </div>
+        <% end %>
       <% else  %>
     <h3>
       <%= link_to follow_admin_users_path(follow_id: @user.id), class: "btn btn-green" do %>

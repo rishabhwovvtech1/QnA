@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   has_many :questions
   has_many :answers
+  has_many :user_follow, as: :following
+  has_many :topics, through: :user_follow
+  # has_many :users, through: :user_follow, as: :following
   def encrypt_password
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt

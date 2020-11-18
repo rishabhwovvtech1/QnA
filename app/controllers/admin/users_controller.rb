@@ -42,7 +42,7 @@ class Admin::UsersController < ApiController
   def follow
     @follow = UserFollow.new(user_id: @current_user.id, followed_user_id: params[:follow_id])
     if @follow.save
-      set_flash_notification :success, :create, entity: 'Question'
+      set_flash_notification :success, :follow, entity: 'User'
     else
       set_instant_flash_notification :danger, :default, {:message => @follow.errors.messages[:base][0]}
     end
@@ -66,6 +66,11 @@ class Admin::UsersController < ApiController
       set_instant_flash_notification :danger, :default, {:message => @user.errors.messages[:base][0]}
       render :edit
     end
+  end
+
+  def error 
+    set_flash_notification :danger, :already, entity: 'User'
+    redirect_to admin_questions_path
   end
 
   private
